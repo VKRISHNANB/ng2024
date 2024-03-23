@@ -1,0 +1,44 @@
+<div>
+    <button class="btn btn-danger" (click)="loadData()">Load</button>
+</div>
+<div class="page-header">
+    <div class="list-group">
+        <div *ngFor="let item of bookList; let idx=index;">
+            <button type="button" class="btn btn-secondary"> #:
+                <span class="badge badge-secondary" [innerText]="idx+1"></span>
+            </button>
+            <div>
+                <h4>Book Name: {{item.name }} </h4>
+                <h5>Author: {{item.author}}</h5>
+                <h5>Publish Date: {{item.publishdate}}</h5>
+                <h5>Original Price: {{item.price}}</h5>
+                <h5>Discount : {{item.discount}}</h5>
+                <div> <img alt="book image" [src]="item.images[0].thumb"></div>
+                <button class="btn btn-primary" type="button" 
+                        *ngIf="item.canBuy" (click)="onbuy(item)">Buy</button>
+                <hr />
+                <section>
+                    <ul class="nav nav-pills">
+                        <li [class.active]="isTabSelected(10+idx)">
+                            <a  href
+                                (click)="onTabChange($event,10+idx)">Description | </a>
+                        </li>
+                        <li [class.active]="isTabSelected(20+idx)">
+                            <a  href
+                                (click)="onTabChange($event,20+idx)"> Review | </a>
+                        </li>
+                        <li [class.active]="isTabSelected(30+idx)" ><a href
+                                (click)="onTabChange($event,30+idx)">Comments</a>
+                        </li>
+                    </ul>
+                </section>
+                <hr />
+                <div class="panel" *ngIf="isTabSelected(10+idx)">
+                    {{item.description}}
+                </div>
+                <div class="panel" *ngIf="isTabSelected(20+idx)">Not Available</div>
+                <div class="panel" *ngIf="isTabSelected(30+idx)">Not Available</div>
+            </div>
+        </div>
+    </div>
+</div>

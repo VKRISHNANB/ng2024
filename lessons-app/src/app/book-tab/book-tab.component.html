@@ -1,0 +1,40 @@
+<div>
+    <section>
+        <h3>Tabs</h3>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <button class="nav-link" [class.active]="isTabSelected(10+idx)" (click)="onTabChange($event,(10+idx))">
+                    Description
+                </button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link" id="btnreview"  [class.active]="isTabSelected(20+idx)"
+                    (click)="onTabChange($event,(20+idx))">
+                    Review
+                </button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link" [class.active]="isTabSelected((30+idx))"
+                    (click)="onTabChange($event,(30+idx))">
+                    Comments
+                </button>
+            </li>
+        </ul>
+    </section>
+    @if(isTabSelected((10+idx))){
+    <div class="panel">
+        {{book.description}}
+    </div>
+    }
+
+    @if(isTabSelected((20+idx))){
+    <div class="panel">Review Not Available</div>
+    }
+    @if(isTabSelected((30+idx))){
+    <div class="panel">
+        <label for="txtcomments">Comments</label>
+        <textarea id="txtcomments" class="panel"></textarea>
+    </div>
+    }
+
+</div>

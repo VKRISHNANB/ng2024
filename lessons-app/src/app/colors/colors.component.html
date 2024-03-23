@@ -1,0 +1,16 @@
+<!-- ▲ [WARNING] NG8103: The `*ngFor` directive was used in the template, but neither the `NgFor` directive nor the `CommonModule` was imported. Use Angular's built-in control flow @for or make sure that either the `NgFor` directive or the `CommonModule` is included in the `@Component.imports` array of this component. [plugin angular-compiler] -->
+<p>colors: Working with Structural Directives </p>
+
+<!-- <div>
+    <div *ngFor="let item of colorList; let idx=index;">
+        <h3>{{idx}} - {{item}}</h3>
+    </div>
+</div> -->
+
+<div>
+    @for (item of colorList; let idx =$index; track item) {
+        <h3> {{idx}} - {{item}}</h3>
+    }@empty {
+    Empty list of Colors
+  } 
+</div>

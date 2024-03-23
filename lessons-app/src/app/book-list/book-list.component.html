@@ -1,0 +1,19 @@
+<p>book List: Working with tabs</p>
+
+<div class="page-header">
+    <div class="list-group">
+        @for(item of bookList; let idx=$index;track item){
+            <div>
+            <button type="button" class="btn btn-secondary"> #:
+                <span class="badge badge-secondary" [innerText]="idx+1"></span>
+            </button>
+            <div>
+                <app-book-b [book]="item"></app-book-b>
+                <app-book-tab [book]="item" [idx]="idx+1"></app-book-tab>
+            </div>
+            <hr/>
+        </div>
+        }
+       
+    </div>
+</div>

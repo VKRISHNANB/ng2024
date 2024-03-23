@@ -1,0 +1,9 @@
+<p>myhome: Data binding - Interpolation - Events</p>
+<h1>Welcome to Angular {{title}} from {{location}}</h1>
+<div>
+    <input type="text" name="txtCity" id="txtCity" 
+                placeholder="Enter City" 
+               (change)='onTextChanged($event)'>
+</div>
+<input type="button" value="hitMe!" (click)='onBtnClick()'>
+<hr>

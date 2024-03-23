@@ -1,0 +1,12 @@
+<div>
+    <app-boxa labelValue="name" inputPlaceholder="Enter Name Here"></app-boxa>
+</div>
+<div>
+    <!-- <app-boxa labelValue="City"  [inputPlaceholder]="location" 
+    (onBoxDataChange)="onBoxValueChange($event)" ></app-boxa> -->
+    <app-boxa labelValue="City"  inputPlaceholder="{{location}}" 
+                        (onBoxDataChange)="onBoxValueChange($event)" ></app-boxa>
+</div>
+<div>
+   Data:  {{data.value}}
+</div>

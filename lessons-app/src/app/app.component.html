@@ -1,0 +1,56 @@
+<main class="main">
+  <div class="content">
+    <div class="left-side">
+      <h1>Ng, {{ title }}</h1>
+      <p>Congratulations! Your app is running. 🎉</p>
+      <!-- <h1>App Component Menu</h1>
+      <div id="menu" name="menu">
+          <ul clas="nav nav-pills">
+              <li> <a href="">Home</a> </li>
+              <li><a href="news">News</a></li>
+              <li><a href="books"> Book List</a></li>
+              <li><a href="addbook"> Add a new Book</a></li>
+          </ul>
+      </div> -->
+      <hr />
+      <div name="lesson-part-One">
+        <!-- In-Line HTML Template -->
+        <app-inline-html ></app-inline-html>
+        <!-- Data Binding: Interpolation and Event Binding -->
+              <!-- <app-myhome ></app-myhome> -->
+
+        <!-- Data Binding: assigning a string and Event Binding -->
+                <!-- <app-myhome title="{{'Chennai'}}" ></app-myhome> -->
+                <!-- <app-myhome [title]="'abcd'"></app-myhome> -->
+
+        <!-- Data Binding: Property binding and Event Binding -->
+              <!-- <app-myhome [title]='title'></app-myhome> -->
+              <!-- <app-myhome title={{title}}></app-myhome> -->
+
+        <!-- Using Images in the Template -->
+              <!-- <app-news></app-news> -->
+        <!-- Structural Directive -->
+              <!-- <app-colors></app-colors> -->
+      <!-- Using Pipes -->
+              <!-- <hr /> -->
+              <!-- <app-books-a></app-books-a> -->
+              <!-- Adding tab controls to book-list -->
+              <!-- <app-book-list></app-book-list>  -->
+        <!-- Event Emmiter, and working with multiple Components (boxa,boxPage) -->
+                <!-- <app-boxpage></app-boxpage> -->
+      </div>
+    </div>
+    <div name="lesson-part-two">
+      <!-- Creating Custom Pipes -->
+
+      <!-- Reactive Form -->
+            <!-- <app-emp-reactiveform-subform></app-emp-reactiveform-subform> -->
+            <!-- <div><app-bookform></app-bookform> </div> -->
+            <!-- <lib-ngx-calculator></lib-ngx-calculator>
+            <lib-ngx-calculator name="Sell" customClass="btn btn-primary"></lib-ngx-calculator>
+            <lib-ngx-calculator name="Free" [customStyle]="{backgroundColor:'red'}"></lib-ngx-calculator> -->
+    </div>
+    <div class="divider" role="separator" aria-label="Divider"></div>
+  </div>
+</main>
+<router-outlet />

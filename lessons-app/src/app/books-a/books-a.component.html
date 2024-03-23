@@ -1,0 +1,52 @@
+<!-- ▲ [WARNING] NG8103: The `*ngIf` directive was used in the template, but neither the `NgIf` directive nor the `CommonModule` was imported. Use Angular's built-in control flow @if or make sure that either the `NgIf` directive or the `CommonModule` is included in the `@Component.imports` array of this component. [plugin angular-compiler] -->
+<p>books-a: Working with for and if</p>
+
+<div class="page-header">
+    <div class="list-group">
+        <div>
+            @for (item of bookList; let idx =$index; track item) {
+            <button type="button" class="btn btn-secondary"> #:
+                <span class="badge badge-secondary" [innerText]="idx+1"></span>
+            </button>
+            <div>
+                <h4>Book Name: {{item.name | uppercase }} </h4>
+                <h5>Author: {{item.author}}</h5>
+                <h5>Publish Date: {{item.publishDate | date}}</h5>
+                <h5>Original Price: {{item.price | currency: 'INR' }}</h5>
+                <h5>Discount : {{item.discount | percent }}</h5>
+                <div> <img alt="book" [src]="item.images[0].thumb"></div>
+                @if(item.canBuy){
+                <button class="btn btn-primary" type="button" (click)="onBuy(item)">Buy</button>
+                }@else {
+                <h5 style="color: red;"> Out of stock</h5>
+                }
+                <hr />
+                <section>
+                    <ul class="nav nav-pills">
+                        <li [class.active]="isTabSelected('b'+idx+'t1')">
+                            <a href (click)="onTabChange($event,'b'+idx+'t1')">Description | </a>
+                        </li>
+                        <li [class.active]="isTabSelected('b'+idx+'t2')">
+                            <a href (click)="onTabChange($event,'b'+idx+'t2')"> Review | </a>
+                        </li>
+                        <li [class.active]="isTabSelected('b'+idx+'t3')">
+                            <a href  (click)="onTabChange($event,'b'+idx+'t3')">Comments</a>
+                        </li>
+                    </ul>
+                </section>
+                <hr />
+                @if(isTabSelected('b'+idx+'t1')){
+                <div class="panel">
+                    {{item.description}}
+                </div>
+                }@else if (isTabSelected('b'+idx+'t2')) {
+                <div class="panel">Review Not Available</div>
+                }@else if (isTabSelected('b'+idx+'t3')) {
+                <div class="panel">Comments Not Available</div>
+                }
+            </div>
+            <hr />
+            }
+        </div>
+    </div>
+</div>
